@@ -480,8 +480,8 @@ body::before {
   align-items: flex-end;
   justify-content: flex-start;
   position: relative;
-  left: -15%; /* Float closer to the left waitlist column */
-  clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+  left: -20%; /* Shifted to match the background polygon */
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); /* Matches background clip-path exactly */
   background: transparent;
 }
 
