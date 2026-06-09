@@ -1,9 +1,10 @@
 /* Design Tokens & Reset */
 :root {
-  --color-bg: #fafafa;
+  --color-bg: #faf6eb;
   --color-primary: #111111;
   --color-secondary: #555555;
-  --color-blue: #005bf3; /* Custom athletic blue */
+  --color-blue: #005bf3;
+  /* Custom athletic blue */
   --color-border: rgba(0, 0, 0, 0.08);
   --color-border-focus: #111111;
   --font-title: 'Montserrat', sans-serif;
@@ -48,7 +49,8 @@ body::before {
   flex-direction: column;
   min-height: 100vh;
   padding: 15px 40px;
-  max-width: 1240px; /* Kept compact to bring models and text together */
+  max-width: 1240px;
+  /* Kept compact to bring models and text together */
   margin: 0 auto;
   width: 100%;
   flex-grow: 1;
@@ -74,7 +76,7 @@ body::before {
   width: 44px;
   height: auto;
   color: var(--color-primary);
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
   transition: transform 0.3s ease;
 }
 
@@ -136,7 +138,8 @@ body::before {
 .main-content {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 20px; /* Tighter layout gap */
+  gap: 20px;
+  /* Tighter layout gap */
   flex-grow: 1;
   align-items: center;
   position: relative;
@@ -149,6 +152,7 @@ body::before {
   flex-direction: column;
   justify-content: center;
   padding-right: 40px;
+  margin-top: -110px;
   animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -428,42 +432,23 @@ body::before {
   margin-top: 1px;
 }
 
-/* Right Column (Hero & Tagline) */
-.hero-column {
-  position: relative;
-  height: 100%;
-  min-height: 550px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  padding-right: 50px; /* Space for tagline sidebar */
-}
 
-/* Diagonal layout backgrounds background */
-.hero-column::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -20%; /* Extend background grey area into center gap */
-  width: 120%;
-  height: 100%;
-  background: linear-gradient(135deg, #e5e6e9 0%, #d2d3d7 100%);
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-  z-index: 1;
-}
+
+
 
 /* Giant background watermark "ATHLEUM" text */
 .watermark-text {
   position: absolute;
   top: 48%;
-  left: -40%; /* Extends across the center screen space */
+  left: -40%;
+  /* Extends across the center screen space */
   transform: translateY(-50%) rotate(-5deg);
   font-family: var(--font-wide);
   font-size: 13.5rem;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.04); /* Extemely subtle outline text */
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.04);
+  /* Extemely subtle outline text */
   letter-spacing: 0.12em;
   pointer-events: none;
   z-index: 2;
@@ -474,21 +459,24 @@ body::before {
 /* Athletic Models Container */
 .models-image-wrapper {
   z-index: 3;
-  width: 120%; /* Makes image larger and lets it overlap center space */
+  width: 120%;
+  /* Makes image larger and lets it overlap center space */
   height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   position: relative;
-  left: -20%; /* Shifted to match the background polygon */
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); /* Matches background clip-path exactly */
+  top: -150px;
+  left: -10%;
+  /* Shifted to match the background polygon */
   background: transparent;
+  transform: translateY(10%);
 }
 
 .models-img {
   max-width: 100%;
   height: auto;
-  max-height: 76vh;
+  max-height: 110vh;
   object-fit: contain;
   filter: drop-shadow(-15px 15px 30px rgba(0, 0, 0, 0.12));
   pointer-events: none;
@@ -549,6 +537,7 @@ body::before {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -560,6 +549,7 @@ body::before {
     opacity: 0;
     transform: translateX(40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -570,6 +560,7 @@ body::before {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -580,11 +571,11 @@ body::before {
   .page-container {
     padding: 24px 40px;
   }
-  
+
   .main-title {
     font-size: 60px;
   }
-  
+
   .hero-column {
     min-height: 480px;
   }
@@ -595,46 +586,46 @@ body::before {
     grid-template-columns: 1fr;
     gap: 50px;
   }
-  
+
   .content-column {
     padding-right: 0;
     align-items: center;
     text-align: center;
   }
-  
+
   .coming-soon-intro {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .blue-accent-bar {
     margin: 20px auto 0 auto;
   }
-  
+
   .countdown {
     justify-content: center;
   }
-  
+
   .notify-container {
     margin: 0 auto 40px auto;
   }
-  
+
   .features-row {
     margin: 0 auto;
     width: 100%;
   }
-  
+
   .hero-column {
     min-height: 450px;
     padding-right: 40px;
   }
-  
+
   .hero-column::before {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     border-radius: 12px;
   }
-  
+
   .models-img {
     max-height: 50vh;
   }
@@ -644,29 +635,29 @@ body::before {
   .page-container {
     padding: 20px 20px;
   }
-  
+
   .main-title {
     font-size: 44px;
   }
-  
+
   .countdown {
     gap: 8px;
   }
-  
+
   .countdown-card {
     width: 66px;
     height: 72px;
   }
-  
+
   .countdown-number {
     font-size: 26px;
   }
-  
+
   .countdown-separator {
     font-size: 18px;
     padding-bottom: 8px;
   }
-  
+
   .signup-form {
     flex-direction: column;
     padding: 6px;
@@ -674,7 +665,7 @@ body::before {
     background: transparent;
     border: none;
   }
-  
+
   .input-wrapper {
     background: #ffffff;
     border: 1px solid #e0e0e0;
@@ -682,33 +673,33 @@ body::before {
     width: 100%;
     padding: 4px 12px;
   }
-  
+
   .notify-btn {
     width: 100%;
     justify-content: center;
     padding: 14px;
     font-size: 12px;
   }
-  
+
   .features-row {
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
   }
-  
+
   .feature-item {
     min-width: 110px;
     margin-bottom: 10px;
   }
-  
+
   .hero-column {
     min-height: 350px;
   }
-  
+
   .models-img {
     max-height: 40vh;
   }
-  
+
   .tagline-sidebar {
     right: 5px;
   }
