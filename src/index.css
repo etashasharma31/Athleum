@@ -38,7 +38,10 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(240, 240, 240, 0.2) 100%);
+  background-image: url('/background_stripe.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   pointer-events: none;
   z-index: -2;
 }
@@ -68,13 +71,14 @@ body::before {
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0px;
   user-select: none;
 }
 
 .logo-icon {
-  width: 44px;
+  width: 80px;
   height: auto;
+  margin-right: -8px;
   color: var(--color-primary);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
   transition: transform 0.3s ease;
@@ -141,9 +145,10 @@ body::before {
   gap: 20px;
   /* Tighter layout gap */
   flex-grow: 1;
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 2;
+  margin-top: 15px;
 }
 
 /* Left Column Styling */
@@ -152,28 +157,28 @@ body::before {
   flex-direction: column;
   justify-content: center;
   padding-right: 40px;
-  margin-top: -110px;
+  margin-top: 0;
   animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .coming-soon-intro {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .intro-badge {
-  font-family: var(--font-wide);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-family: var(--font-title);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   color: var(--color-secondary);
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .main-title {
   font-family: var(--font-title);
   font-size: 72px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.01em;
   color: var(--color-primary);
@@ -182,9 +187,11 @@ body::before {
 }
 
 .intro-text {
-  font-size: 15px;
+  font-family: var(--font-title);
+  font-size: 14.5px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
   color: var(--color-secondary);
   max-width: 450px;
 }
@@ -207,7 +214,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .countdown-card {
@@ -261,7 +268,7 @@ body::before {
 
 /* Notification Container */
 .notify-container {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   max-width: 480px;
 }
 
@@ -459,24 +466,25 @@ body::before {
 /* Athletic Models Container */
 .models-image-wrapper {
   z-index: 3;
-  width: 120%;
-  /* Makes image larger and lets it overlap center space */
-  height: 100%;
+  width: 50%;
+  /* Adjust width to cover right side */
+  height: calc(100% + 140px);
+  /* Height spans the container plus top overflow */
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  position: relative;
-  top: -150px;
-  left: -10%;
-  /* Shifted to match the background polygon */
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  /* Align to the right side of the container */
   background: transparent;
-  transform: translateY(10%);
+  pointer-events: none;
 }
 
 .models-img {
-  max-width: 100%;
-  height: auto;
-  max-height: 110vh;
+  max-width: 120%;
+  /* Allow slight overlap with center space */
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(-15px 15px 30px rgba(0, 0, 0, 0.12));
   pointer-events: none;
@@ -523,12 +531,15 @@ body::before {
 /* Footer styling */
 .main-footer {
   text-align: center;
-  padding: 30px 0 10px 0;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: #999999;
+  padding: 10px 0 5px 0;
+  margin-top: 10px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--color-secondary);
   z-index: 10;
-  font-family: var(--font-body);
+  font-family: var(--font-title);
+  text-transform: uppercase;
 }
 
 /* Animations */
@@ -567,6 +578,13 @@ body::before {
 }
 
 /* Responsive Breakpoints */
+@media (min-width: 1025px) {
+  .page-container {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 1200px) {
   .page-container {
     padding: 24px 40px;
