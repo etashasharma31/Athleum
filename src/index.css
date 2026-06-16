@@ -573,35 +573,34 @@ body::before {
   .page-container {
     height: auto;
     max-height: none;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
     padding: 20px 28px;
     min-height: 100dvh;
   }
 
-  /* Single column, centered */
+  /* Single column, left-aligned — content above, image below */
   .main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    position: relative; /* keep for tagline sidebar */
     overflow: visible;
-    position: static;   /* kill relative ctx so absolute children flow normally */
     margin-top: 12px;
-    gap: 0;
   }
 
   .content-column {
-    padding-right: 0;
-    align-items: center;
-    text-align: center;
+    padding-right: clamp(36px, 6vw, 56px); /* room for tagline sidebar */
+    align-items: flex-start;
+    text-align: left;
     width: 100%;
-    max-width: 620px;
     gap: 14px;
+    overflow: visible;
+    justify-content: flex-start;
   }
 
   .coming-soon-intro {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .intro-text {
@@ -609,11 +608,11 @@ body::before {
   }
 
   .blue-accent-bar {
-    margin: 10px auto 0;
+    margin: 10px 0 0;
   }
 
   .countdown {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .countdown-card {
@@ -626,18 +625,18 @@ body::before {
   }
 
   .notify-container {
-    margin: 0 auto;
-    max-width: 500px;
+    max-width: 520px;
+    width: 100%;
   }
 
   .features-row {
-    margin: 0 auto;
     width: 100%;
     max-width: 520px;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: clamp(10px, 3vw, 22px);
   }
 
-  /* Models image: in-flow, centered */
+  /* Models image: in-flow, full width below content */
   .models-image-wrapper {
     position: relative;
     width: 100%;
@@ -646,46 +645,41 @@ body::before {
     right: auto;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 24px;
+    margin-top: 20px;
     pointer-events: none;
+    overflow: visible;
   }
 
   .models-img {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     height: auto;
-    max-height: 52vh;
+    max-height: none;
     object-fit: contain;
+    object-position: bottom center;
   }
 
-  /* Tagline: horizontal banner below image */
+  /* Tagline: keep vertical on the right side */
   .tagline-sidebar {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    gap: 16px;
-    margin: 14px auto 6px;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 1.5vh, 18px);
+    margin: 0;
   }
 
   .tagline-text {
-    writing-mode: horizontal-tb;
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    writing-mode: vertical-rl;
+    font-size: clamp(8px, 1vw, 10px);
+    letter-spacing: 0.2em;
   }
 
   .tagline-line {
-    width: 36px;
-    height: 2px;
-  }
-
-  /* Divider becomes a vertical bar between the two phrases */
-  .tagline-divider {
-    width: 1.5px;
-    height: 20px;
-    background-color: rgba(0, 0, 0, 0.18);
+    width: 2px;
+    height: clamp(40px, 5vh, 70px);
   }
 
   .main-footer {
@@ -697,19 +691,20 @@ body::before {
 /* ── Mobile (≤ 600px) ──────────────────────── */
 @media (max-width: 600px) {
   .page-container {
-    padding: 14px 14px;
+    padding: 14px 18px;
   }
 
   .main-header {
     padding: 4px 0 10px;
+    gap: 6px;
   }
 
   .logo-icon {
-    width: 68px;
+    width: 62px;
   }
 
   .logo-title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .logo-subtitle {
@@ -718,16 +713,21 @@ body::before {
   }
 
   .social-nav {
-    gap: 14px;
+    gap: 12px;
   }
 
-  /* Reduce gap between sections on mobile */
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
   .content-column {
     gap: 10px;
+    padding-right: 32px;
   }
 
   .main-title {
-    font-size: 44px;
+    font-size: clamp(40px, 13vw, 58px);
     line-height: 0.9;
   }
 
@@ -740,12 +740,12 @@ body::before {
   }
 
   .countdown-card {
-    width: 60px;
-    height: 68px;
+    width: clamp(56px, 16vw, 72px);
+    height: clamp(64px, 17vw, 80px);
   }
 
   .countdown-number {
-    font-size: 22px;
+    font-size: clamp(20px, 6vw, 28px);
   }
 
   .countdown-label {
@@ -766,7 +766,7 @@ body::before {
     margin-bottom: 6px;
   }
 
-  /* Stack form vertically */
+  /* Stack form on small screens */
   .signup-form {
     flex-direction: column;
     padding: 0;
@@ -774,6 +774,7 @@ body::before {
     background: transparent;
     border: none;
     box-shadow: none;
+    width: 100%;
   }
 
   .input-wrapper {
@@ -792,60 +793,65 @@ body::before {
     border-radius: 6px;
   }
 
-  /* Feature grid: 2×2 with equal columns */
+  /* Feature icons — single horizontal row */
   .features-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 14px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 6px;
     max-width: 100%;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 10px;
+    justify-content: space-between;
   }
 
   .feature-item {
-    flex: none;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
   }
 
   .feature-icon-wrapper svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 
   .feature-title-bold {
-    font-size: 8px;
+    font-size: clamp(6px, 1.8vw, 8px);
   }
 
   .feature-title-sub {
-    font-size: 7px;
+    font-size: clamp(5px, 1.6vw, 7px);
   }
 
-  /* Model image fills more of the screen */
+  /* Hero image: full width, generous height */
   .models-image-wrapper {
-    margin-top: 10px;
+    margin-top: 12px;
+    width: 100%;
   }
 
   .models-img {
-    max-width: 90%;
-    max-height: 50vh;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     display: block;
+    margin: 0 auto;
   }
 
-  /* Tagline horizontal — compact */
+  /* Tagline sidebar stays vertical on the right */
   .tagline-sidebar {
-    margin: 6px auto 4px;
+    right: 0;
+    top: 38%;
     gap: 10px;
   }
 
   .tagline-text {
-    font-size: 8.5px;
-    letter-spacing: 0.16em;
+    font-size: 8px;
+    letter-spacing: 0.18em;
   }
 
   .tagline-line {
-    width: 24px;
+    height: 40px;
   }
 
   .main-footer {
@@ -858,19 +864,19 @@ body::before {
 /* ── Very small phones (≤ 390px) ──────────── */
 @media (max-width: 390px) {
   .page-container {
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
 
   .logo-icon {
-    width: 58px;
+    width: 54px;
   }
 
   .logo-title {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .logo-subtitle {
-    font-size: 6.5px;
+    font-size: 6px;
     letter-spacing: 0.1em;
   }
 
@@ -879,7 +885,7 @@ body::before {
   }
 
   .countdown {
-    gap: 5px;
+    gap: 4px;
   }
 
   .countdown-card {
@@ -893,6 +899,10 @@ body::before {
 
   .countdown-separator {
     font-size: 14px;
+  }
+
+  .content-column {
+    padding-right: 28px;
   }
 
   .models-img {
