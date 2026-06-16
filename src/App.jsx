@@ -177,7 +177,7 @@ function App() {
       </header>
 
       {/* Main Content Area */}
-      <main className="main-content">
+      <main className="main-content" role="main">
         {/* Left Column: Copy & Form */}
         <section className="content-column">
           <div className="coming-soon-intro">
@@ -384,7 +384,7 @@ function App() {
         </div>
 
         {/* Right Tagline Sidebar */}
-        <div className="tagline-sidebar">
+        <div className="tagline-sidebar" aria-label="Brand tagline">
           <div className="tagline-text">
             ONE BRAND. <span className="tagline-blue">EVERY MOVE.</span>
           </div>
