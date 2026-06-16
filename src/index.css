@@ -53,7 +53,8 @@ body::before {
   /* Lock to viewport height on desktop — prevents stretching */
   height: 100dvh;
   max-height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   padding: clamp(10px, 1.2vh, 20px) clamp(20px, 3vw, 50px);
   max-width: 1280px;
   margin: 0 auto;
@@ -154,7 +155,7 @@ body::before {
   position: relative;
   z-index: 2;
   margin-top: clamp(8px, 1vh, 20px);
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* =============================================
@@ -462,18 +463,19 @@ body::before {
   bottom: 0;
   right: clamp(20px, 2.5vw, 40px);
   width: 52%;
-  height: calc(100% + clamp(60px, 8vh, 130px));
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   pointer-events: none;
   z-index: 3;
+  overflow: visible;
 }
 
 .models-img {
   width: 100%;
   max-width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(-15px 15px 30px rgba(0, 0, 0, 0.12));
@@ -519,6 +521,15 @@ body::before {
   height: clamp(50px, 6vh, 90px);
   background-color: var(--color-blue);
 }
+
+/* Short horizontal dash separating the two tagline phrases */
+.tagline-divider {
+  width: clamp(16px, 1.8vw, 24px);
+  height: 1.5px;
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+}
+
 
 /* =============================================
    Footer
@@ -668,6 +679,13 @@ body::before {
   .tagline-line {
     width: 36px;
     height: 2px;
+  }
+
+  /* Divider becomes a vertical bar between the two phrases */
+  .tagline-divider {
+    width: 1.5px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.18);
   }
 
   .main-footer {

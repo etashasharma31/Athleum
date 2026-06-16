@@ -386,7 +386,7 @@ function App() {
         {/* Right Tagline Sidebar */}
         <div className="tagline-sidebar" aria-label="Brand tagline">
           <div className="tagline-text">
-            ONE BRAND. <span className="tagline-blue">EVERY MOVE.</span>
+            MOVE BEYOND <span className="tagline-blue">LIMITS.</span>
           </div>
           <div className="tagline-line" aria-hidden="true"></div>
         </div>
