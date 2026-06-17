@@ -646,24 +646,24 @@ body::before {
 
   .models-image-wrapper {
     position: absolute;
-    top: 0;
+    top: auto;
     bottom: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
+    width: 46%;
+    height: 52%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     pointer-events: none;
     z-index: 1;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .models-img {
     width: 100%;
     max-width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: right bottom;
   }
 
@@ -727,13 +727,17 @@ body::before {
   }
 
   .main-content {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    display: block;
     margin-top: 8px;
   }
 
   .content-column {
-    padding-right: 20px;
+    width: 100%;
+    max-width: 440px;
+    padding-right: 0;
     gap: clamp(8px, 1.8vh, 14px);
+    position: relative;
+    z-index: 5;
   }
 
   .main-title {
@@ -836,6 +840,11 @@ body::before {
     font-size: clamp(4.5px, 1.2vw, 6.5px);
   }
 
+  .models-image-wrapper {
+    width: 42%;
+    height: 48%;
+  }
+
 
 
   .tagline-sidebar {
@@ -877,12 +886,13 @@ body::before {
   }
 
   .main-content {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    display: block;
   }
 
   .content-column {
-    padding-right: 12px;
+    padding-right: 0;
     gap: 6px;
+    width: 100%;
   }
 
   .main-title {
@@ -909,6 +919,11 @@ body::before {
   .feature-icon-wrapper svg {
     width: 14px;
     height: 14px;
+  }
+
+  .models-image-wrapper {
+    width: 38%;
+    height: 44%;
   }
 
 
