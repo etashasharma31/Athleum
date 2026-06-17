@@ -708,11 +708,11 @@ body::before {
   }
 
   .logo-title {
-    font-size: clamp(13px, 3.5vw, 17px);
+    font-size: clamp(14px, 3.8vw, 18px);
   }
 
   .logo-subtitle {
-    font-size: clamp(6px, 1.5vw, 8px);
+    font-size: clamp(6.5px, 1.6vw, 8.5px);
     letter-spacing: 0.12em;
     margin-top: 2px;
   }
@@ -735,7 +735,7 @@ body::before {
   .content-column {
     width: 100%;
     padding-right: 10px;
-    gap: clamp(8px, 1.8vh, 14px);
+    gap: clamp(12px, 2.5vh, 22px);
     position: relative;
     z-index: 5;
   }
@@ -746,7 +746,7 @@ body::before {
   }
 
   .intro-text {
-    font-size: clamp(10px, 2.8vw, 12px);
+    font-size: clamp(11px, 2.8vw, 13px);
     line-height: 1.5;
   }
 
@@ -761,33 +761,33 @@ body::before {
   }
 
   .countdown-number {
-    font-size: clamp(15px, 4.5vw, 20px);
+    font-size: clamp(16px, 4.5vw, 21px);
   }
 
   .countdown-label {
-    font-size: clamp(5.5px, 1.5vw, 7px);
+    font-size: clamp(6.5px, 1.8vw, 8.5px);
     margin-top: 2px;
   }
 
   .countdown-separator {
-    font-size: clamp(12px, 3vw, 16px);
+    font-size: clamp(14px, 3.5vw, 18px);
     padding-bottom: 4px;
   }
 
   .notify-title {
-    font-size: clamp(8.5px, 2.2vw, 10.5px);
-    margin-bottom: 2px;
+    font-size: clamp(10px, 2.6vw, 12px);
+    margin-bottom: 3px;
   }
 
   .notify-subtitle {
-    font-size: clamp(9px, 2.5vw, 11px);
-    margin-bottom: 4px;
+    font-size: clamp(10.5px, 2.8vw, 12.5px);
+    margin-bottom: 5px;
   }
 
   .signup-form {
     display: flex;
     flex-direction: row;
-    padding: 3px;
+    padding: 4px;
     background: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
@@ -796,53 +796,49 @@ body::before {
   }
 
   .input-wrapper {
-    padding-left: 8px;
-    gap: 6px;
+    padding-left: 10px;
+    gap: 8px;
   }
 
   .mail-icon {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
   }
 
   .signup-form input {
-    padding: 6px 0;
-    font-size: clamp(10px, 2.8vw, 12px);
+    padding: 7px 0;
+    font-size: clamp(11px, 2.9vw, 13px);
   }
 
   .notify-btn {
-    padding: 6px 12px;
-    font-size: clamp(8px, 2.2vw, 9.5px);
-    gap: 4px;
+    padding: 7px 14px;
+    font-size: clamp(9px, 2.4vw, 10.5px);
+    gap: 5px;
     border-radius: 4px;
   }
 
   .notify-btn svg {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
   }
 
   .features-row {
-    padding-top: 8px;
-    gap: 6px;
+    padding-top: 10px;
+    gap: 8px;
   }
 
   .feature-icon-wrapper svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 
   .feature-title-bold {
-    font-size: clamp(5.5px, 1.5vw, 7.5px);
+    font-size: clamp(6.5px, 1.8vw, 8.5px);
   }
 
   .feature-title-sub {
-    font-size: clamp(4.5px, 1.2vw, 6.5px);
+    font-size: clamp(5.5px, 1.5vw, 7.5px);
   }
-
-
-
-
 
   .tagline-sidebar {
     right: -4px;
