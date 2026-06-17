@@ -646,25 +646,25 @@ body::before {
 
   .models-image-wrapper {
     position: absolute;
-    top: -80px;
+    top: 0;
     bottom: 0;
-    right: -10px;
-    width: 72%;
-    height: auto;
+    right: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     pointer-events: none;
     z-index: 1;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .models-img {
     width: 100%;
     max-width: 100%;
-    height: 135%;
-    object-fit: contain;
-    object-position: bottom right;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
   }
 
   .tagline-sidebar {
@@ -836,16 +836,7 @@ body::before {
     font-size: clamp(4.5px, 1.2vw, 6.5px);
   }
 
-  .models-image-wrapper {
-    top: -70px;
-    right: 0px;
-    width: 70%;
-    justify-content: flex-end;
-  }
 
-  .models-img {
-    height: 130%;
-  }
 
   .tagline-sidebar {
     right: -4px;
@@ -920,15 +911,7 @@ body::before {
     height: 14px;
   }
 
-  .models-image-wrapper {
-    top: -60px;
-    right: 0px;
-    width: 65%;
-  }
 
-  .models-img {
-    max-height: 60vh;
-  }
 
   .tagline-sidebar {
     right: -10px;
