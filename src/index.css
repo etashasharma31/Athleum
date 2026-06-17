@@ -564,37 +564,35 @@ body::before {
 }
 
 /* =============================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE BREAKPOINTS (Desktop layout preserved on Mobile)
    ============================================= */
 
 /* ── Tablet portrait & below (≤ 1024px) ──── */
 @media (max-width: 1024px) {
-  /* Allow scrolling again — viewport height is no longer fixed */
   .page-container {
-    height: auto;
-    max-height: none;
+    height: 100dvh;
+    max-height: 100dvh;
     overflow-x: hidden;
-    overflow-y: visible;
-    padding: 20px 28px;
-    min-height: 100dvh;
+    overflow-y: hidden;
+    padding: 16px 24px;
   }
 
-  /* Single column, left-aligned — content above, image below */
   .main-content {
-    display: block;
-    position: relative; /* keep for tagline sidebar */
-    overflow: visible;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    flex-grow: 1;
+    min-height: 0;
+    position: relative;
+    z-index: 2;
     margin-top: 12px;
   }
 
   .content-column {
-    padding-right: clamp(36px, 6vw, 56px); /* room for tagline sidebar */
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    gap: 14px;
-    overflow: visible;
-    justify-content: flex-start;
+    padding-right: clamp(15px, 2.5vw, 30px);
+    justify-content: center;
+    gap: clamp(10px, 2vh, 18px);
+    position: relative;
+    z-index: 5;
   }
 
   .coming-soon-intro {
@@ -605,147 +603,25 @@ body::before {
 
   .intro-text {
     max-width: 100%;
+    font-size: clamp(11px, 1.2vw, 13.5px);
   }
 
   .blue-accent-bar {
-    margin: 10px 0 0;
+    margin: 8px 0 0;
   }
 
   .countdown {
     justify-content: flex-start;
+    gap: 8px;
   }
 
   .countdown-card {
-    width: 72px;
-    height: 80px;
+    width: clamp(50px, 7vw, 68px);
+    height: clamp(56px, 8vh, 76px);
   }
 
   .countdown-number {
-    font-size: 28px;
-  }
-
-  .notify-container {
-    max-width: 520px;
-    width: 100%;
-  }
-
-  .features-row {
-    width: 100%;
-    max-width: 520px;
-    justify-content: flex-start;
-    gap: clamp(10px, 3vw, 22px);
-  }
-
-  /* Models image: in-flow, full width below content */
-  .models-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: auto;
-    bottom: auto;
-    right: auto;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 20px;
-    pointer-events: none;
-    overflow: visible;
-  }
-
-  .models-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-    object-position: bottom center;
-  }
-
-  /* Tagline: keep vertical on the right side */
-  .tagline-sidebar {
-    position: absolute;
-    right: 0;
-    top: 40%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(10px, 1.5vh, 18px);
-    margin: 0;
-  }
-
-  .tagline-text {
-    writing-mode: vertical-rl;
-    font-size: clamp(8px, 1vw, 10px);
-    letter-spacing: 0.2em;
-  }
-
-  .tagline-line {
-    width: 2px;
-    height: clamp(40px, 5vh, 70px);
-  }
-
-  .main-footer {
-    margin-top: 18px;
-    padding: 10px 0 8px;
-  }
-}
-
-/* ── Mobile (≤ 600px) ──────────────────────── */
-@media (max-width: 600px) {
-  .page-container {
-    padding: 14px 18px;
-  }
-
-  .main-header {
-    padding: 4px 0 10px;
-    gap: 6px;
-  }
-
-  .logo-icon {
-    width: 62px;
-  }
-
-  .logo-title {
-    font-size: 16px;
-  }
-
-  .logo-subtitle {
-    font-size: 7px;
-    letter-spacing: 0.13em;
-  }
-
-  .social-nav {
-    gap: 12px;
-  }
-
-  .social-link svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .content-column {
-    gap: 10px;
-    padding-right: 32px;
-  }
-
-  .main-title {
-    font-size: clamp(40px, 13vw, 58px);
-    line-height: 0.9;
-  }
-
-  .intro-text {
-    font-size: 13px;
-  }
-
-  .countdown {
-    gap: 6px;
-  }
-
-  .countdown-card {
-    width: clamp(56px, 16vw, 72px);
-    height: clamp(64px, 17vw, 80px);
-  }
-
-  .countdown-number {
-    font-size: clamp(20px, 6vw, 28px);
+    font-size: clamp(18px, 2.5vw, 26px);
   }
 
   .countdown-label {
@@ -753,100 +629,55 @@ body::before {
   }
 
   .countdown-separator {
-    font-size: 16px;
-    padding-bottom: 8px;
+    font-size: 18px;
+    padding-bottom: 6px;
   }
 
-  .notify-title {
-    font-size: 10px;
-  }
-
-  .notify-subtitle {
-    font-size: 12px;
-    margin-bottom: 6px;
-  }
-
-  /* Stack form on small screens */
-  .signup-form {
-    flex-direction: column;
-    padding: 0;
-    gap: 8px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    width: 100%;
-  }
-
-  .input-wrapper {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    width: 100%;
-    padding: 6px 12px;
-  }
-
-  .notify-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 13px;
-    font-size: 11px;
-    border-radius: 6px;
-  }
-
-  /* Feature icons — single horizontal row */
-  .features-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 6px;
+  .notify-container {
     max-width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    padding-top: 10px;
-    justify-content: space-between;
   }
 
-  .feature-item {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .feature-icon-wrapper svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .feature-title-bold {
-    font-size: clamp(6px, 1.8vw, 8px);
-  }
-
-  .feature-title-sub {
-    font-size: clamp(5px, 1.6vw, 7px);
-  }
-
-  /* Hero image: full width, generous height */
-  .models-image-wrapper {
-    margin-top: 12px;
+  .features-row {
     width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: clamp(8px, 1.5vw, 16px);
+  }
+
+  .models-image-wrapper {
+    position: absolute;
+    top: -80px;
+    bottom: 0;
+    right: -10px;
+    width: 72%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
   }
 
   .models-img {
     width: 100%;
     max-width: 100%;
-    height: auto;
-    max-height: none;
-    display: block;
-    margin: 0 auto;
+    height: 135%;
+    object-fit: contain;
+    object-position: bottom right;
   }
 
-  /* Tagline sidebar stays vertical on the right */
   .tagline-sidebar {
+    position: absolute;
     right: 0;
-    top: 38%;
+    top: 50%;
+    transform: translateY(-50%);
     gap: 10px;
   }
 
   .tagline-text {
-    font-size: 8px;
+    writing-mode: vertical-rl;
+    font-size: 9px;
     letter-spacing: 0.18em;
   }
 
@@ -855,33 +686,64 @@ body::before {
   }
 
   .main-footer {
-    margin-top: 10px;
-    padding: 8px 0 6px;
+    padding: 8px 0 4px;
     font-size: 8px;
   }
 }
 
-/* ── Very small phones (≤ 390px) ──────────── */
-@media (max-width: 390px) {
+/* ── Mobile (≤ 600px) ──────────────────────── */
+@media (max-width: 600px) {
   .page-container {
-    padding: 10px 14px;
+    padding: 12px 16px;
+  }
+
+  .main-header {
+    padding: 4px 0 8px;
+    gap: 6px;
   }
 
   .logo-icon {
-    width: 54px;
+    width: clamp(50px, 12vw, 68px);
+    margin-right: -6px;
   }
 
   .logo-title {
-    font-size: 14px;
+    font-size: clamp(13px, 3.5vw, 17px);
   }
 
   .logo-subtitle {
-    font-size: 6px;
-    letter-spacing: 0.1em;
+    font-size: clamp(6px, 1.5vw, 8px);
+    letter-spacing: 0.12em;
+    margin-top: 2px;
+  }
+
+  .social-nav {
+    gap: clamp(8px, 2.5vw, 14px);
+  }
+
+  .social-link svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .main-content {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    margin-top: 8px;
+  }
+
+  .content-column {
+    padding-right: 20px;
+    gap: clamp(8px, 1.8vh, 14px);
   }
 
   .main-title {
-    font-size: 38px;
+    font-size: clamp(32px, 9.5vw, 48px);
+    line-height: 0.95;
+  }
+
+  .intro-text {
+    font-size: clamp(10px, 2.8vw, 12px);
+    line-height: 1.5;
   }
 
   .countdown {
@@ -889,23 +751,194 @@ body::before {
   }
 
   .countdown-card {
-    width: 54px;
-    height: 62px;
+    width: clamp(40px, 11vw, 52px);
+    height: clamp(48px, 12vw, 60px);
+    border-radius: 4px;
   }
 
   .countdown-number {
-    font-size: 19px;
+    font-size: clamp(15px, 4.5vw, 20px);
+  }
+
+  .countdown-label {
+    font-size: clamp(5.5px, 1.5vw, 7px);
+    margin-top: 2px;
   }
 
   .countdown-separator {
-    font-size: 14px;
+    font-size: clamp(12px, 3vw, 16px);
+    padding-bottom: 4px;
   }
 
-  .content-column {
-    padding-right: 28px;
+  .notify-title {
+    font-size: clamp(8.5px, 2.2vw, 10.5px);
+    margin-bottom: 2px;
+  }
+
+  .notify-subtitle {
+    font-size: clamp(9px, 2.5vw, 11px);
+    margin-bottom: 4px;
+  }
+
+  .signup-form {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+    width: 100%;
+  }
+
+  .input-wrapper {
+    padding-left: 8px;
+    gap: 6px;
+  }
+
+  .mail-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .signup-form input {
+    padding: 6px 0;
+    font-size: clamp(10px, 2.8vw, 12px);
+  }
+
+  .notify-btn {
+    padding: 6px 12px;
+    font-size: clamp(8px, 2.2vw, 9.5px);
+    gap: 4px;
+    border-radius: 4px;
+  }
+
+  .notify-btn svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .features-row {
+    padding-top: 8px;
+    gap: 6px;
+  }
+
+  .feature-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .feature-title-bold {
+    font-size: clamp(5.5px, 1.5vw, 7.5px);
+  }
+
+  .feature-title-sub {
+    font-size: clamp(4.5px, 1.2vw, 6.5px);
+  }
+
+  .models-image-wrapper {
+    top: -70px;
+    right: 0px;
+    width: 70%;
+    justify-content: flex-end;
   }
 
   .models-img {
-    max-height: 46vh;
+    height: 130%;
+  }
+
+  .tagline-sidebar {
+    right: -4px;
+    gap: 6px;
+  }
+
+  .tagline-text {
+    font-size: 7.5px;
+    letter-spacing: 0.15em;
+  }
+
+  .tagline-line {
+    height: 30px;
+  }
+
+  .main-footer {
+    font-size: 7px;
+    padding: 6px 0 2px;
+  }
+}
+
+/* ── Very small phones (≤ 390px) ──────────── */
+@media (max-width: 390px) {
+  .page-container {
+    padding: 8px 12px;
+  }
+
+  .logo-icon {
+    width: 44px;
+  }
+
+  .logo-title {
+    font-size: 11px;
+  }
+
+  .logo-subtitle {
+    font-size: 5px;
+  }
+
+  .main-content {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  .content-column {
+    padding-right: 12px;
+    gap: 6px;
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .countdown-card {
+    width: 34px;
+    height: 40px;
+  }
+
+  .countdown-number {
+    font-size: 12px;
+  }
+
+  .countdown-label {
+    font-size: 4.5px;
+  }
+
+  .features-row {
+    gap: 3px;
+  }
+
+  .feature-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .models-image-wrapper {
+    top: -60px;
+    right: 0px;
+    width: 65%;
+  }
+
+  .models-img {
+    max-height: 60vh;
+  }
+
+  .tagline-sidebar {
+    right: -10px;
+  }
+
+  .tagline-text {
+    font-size: 6px;
+  }
+
+  .tagline-line {
+    height: 16px;
   }
 }

@@ -249,7 +249,7 @@ function App() {
                 <input
                   type="email"
                   id="email-input"
-                  placeholder="Enter your email address"
+                  placeholder="Enter your email"
                   aria-label="Email address for notification list"
                   required
                   value={email}
