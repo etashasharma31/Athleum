@@ -19,7 +19,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -70,7 +71,8 @@ body::before {
   align-items: center;
   padding: clamp(6px, 0.8vh, 14px) 0;
   z-index: 10;
-  flex-shrink: 0; /* header never grows/shrinks */
+  flex-shrink: 0;
+  /* header never grows/shrinks */
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -154,7 +156,8 @@ body::before {
   /* Left column: text. Right side is handled with absolute positioning */
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   flex-grow: 1;
-  min-height: 0; /* critical: allows grid to shrink inside flex */
+  min-height: 0;
+  /* critical: allows grid to shrink inside flex */
   position: relative;
   z-index: 2;
   margin-top: clamp(8px, 1vh, 20px);
@@ -401,8 +404,13 @@ body::before {
   font-weight: 500;
 }
 
-.form-feedback.success { color: #10b981; }
-.form-feedback.error   { color: #ef4444; }
+.form-feedback.success {
+  color: #10b981;
+}
+
+.form-feedback.error {
+  color: #ef4444;
+}
 
 /* =============================================
    Feature Badges
@@ -554,16 +562,37 @@ body::before {
    Animations
    ============================================= */
 @keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 @keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* =============================================
@@ -767,14 +796,6 @@ body::before {
     z-index: 1;
     overflow: hidden;
     margin-top: 0;
-  }
-
-  .models-image-wrapper::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(250, 246, 235, 0) 65%, #faf6eb 100%);
-    pointer-events: none;
   }
 
   .models-img {
